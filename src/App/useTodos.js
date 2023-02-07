@@ -1,10 +1,8 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-//crear contextos
-const TodoContext = React.createContext();
 
-function TodoProvider(props) {
+function useTodos() {
 
   const {
     item: todos, //renombrar
@@ -75,26 +73,21 @@ function TodoProvider(props) {
   }
 
   //
-  return (
-    <TodoContext.Provider value={{//indicar cual es el estado que vamos a compartir en todos los componentes que esta conteniendo
+  return {//indicar cual es el estado que vamos a compartir en todos los componentes que esta conteniendo
 
-      loading,
-      error,
-      totalTodos,
-      completedTodos,
-      addTodo,
-      searchValue,
-      setSearchValue,
-      searchedTodos,
-      completeTodo,
-      deleteTodo,
-      openModal,
-      setOpenModal,
-    }}
-    >
-      {props.children}
-    </TodoContext.Provider>
-  );
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    addTodo,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  };
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

@@ -7,3 +7,7 @@
   color: rgba(255, 255, 255, 0.616);
   font-weight: 800;
 }
+
+.TodoCounter--loading {
+  opacity: 25%;
+}

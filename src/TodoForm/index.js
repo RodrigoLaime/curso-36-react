@@ -1,14 +1,12 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './TodoForm.css'
 
-function TodoForm() {
+function TodoForm({
+  addTodo,
+  setOpenModal,
+}) {
   //stado del texarea es un string vacio
   const [newTodoValue, setNewTodoValue] = React.useState('')
-  const {
-    addTodo,
-    setOpenModal,
-  } = React.useContext(TodoContext)
 
   //cada que se escrive
   const onChange = (event) => {

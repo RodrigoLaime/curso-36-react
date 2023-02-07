@@ -28,3 +28,7 @@
 .TodoSearch:hover {
   border: 2px solid #61DAFA;
 }
+
+.TosoSerach:disabled {
+  opacity: 5%;
+}
