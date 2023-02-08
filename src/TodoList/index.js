@@ -18,7 +18,7 @@ function TodoList(props) {
 
       {/* si las validaciones anteriores no funcinan
       recorrer el array y devolver todoItem  */}
-      {props.searchedTodos.map(renderFunc)}
+      {(!props.loading && !props.error) && props.searchedTodos.map(renderFunc)}
 
       <ul>
         {props.children}

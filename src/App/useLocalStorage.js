@@ -1,6 +1,7 @@
 import React from "react";
-
 function useLocalStorage(itemName, initialValue) {
+  // estado de erro
+  const [sincronizedItem, setSincronizedItem] = React.useState(true);
   // estado de erro
   const [error, setError] = React.useState(false);
   // estado de loading
@@ -31,11 +32,13 @@ function useLocalStorage(itemName, initialValue) {
         //quitar el loading
         setLoading(false)
 
+        setSincronizedItem(true)
+
       } catch (error) {
         setError(error)
       }
     }, 3000);
-  }, []);
+  }, [sincronizedItem]);
 
 
   //Eliminar o guardar las actualizaciones completas con persistencia en localstorage 
@@ -53,12 +56,18 @@ function useLocalStorage(itemName, initialValue) {
     }
   }
 
+  const sincronizeItem = () => {
+    setLoading(true)
+    setSincronizedItem(false)
+  }
+
   //actualizar los elementos
   return { //si tenemos mas estados en un mismo cutomReactHook no se envia [...] sino un {...}
     item,
     saveItem,
     loading,
-    error
+    error,
+    sincronizeItem,
   };
 }//final funcio localstorague
 
